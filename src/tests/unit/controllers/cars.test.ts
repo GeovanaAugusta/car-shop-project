@@ -25,7 +25,7 @@ describe('Cars Controller', () => {
     sinon.restore()
   })
 
-  describe('Cars Frame', () => {
+  describe('Create Car', () => {
     beforeEach(() => {
       sinon.stub(carsService, 'create').resolves(carsMock);
     })
