@@ -57,15 +57,15 @@ describe('Cars Controller', () => {
     });
   });
 
-  // describe('Update Frame', () => {
-  //   it('Success', async () => {
-  //     sinon.stub(carsService, 'update').resolves(carsMockWithId)
+  describe('Update Car', () => {
+    it('Success', async () => {
+      sinon.stub(carsService, 'update').resolves(carsMockWithId)
 
-  //     await carsController.update(req, res)
+      await carsController.update(req, res)
 
-  //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-  //     expect((res.json as sinon.SinonStub).calledWith(carsMockWithId)).to.be.true;
-  //   })
-  // })
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(carsMockWithId)).to.be.true;
+    })
+  })
 
 });
