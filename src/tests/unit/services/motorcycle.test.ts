@@ -6,7 +6,7 @@ import MotorcylesModels from '../../../models/MotorcylesModels';
 import MotorcylesServices from '../../../services/MotorcylesServices';
 import { motorcycleMock, motorcycleMockWithId  } from '../../mocks/motorcycleMock';
 
-describe('Cars Service', () => {
+describe('Motorcycles Service', () => {
 	const motorcycleModel = new MotorcylesModels();
 	const motorcyclesService = new MotorcylesServices(motorcycleModel);
 
@@ -50,10 +50,10 @@ describe('Cars Service', () => {
 		});
 	});
 
-	// describe('Read Cars', () => {
+	// describe('Read a Motorcycles', () => {
 	// 			it('Success', async () => {
-	// 				const frames = await motorcyclesService.read();
-	// 				expect(frames).to.be.deep.equal([motorcycleMockWithId]);
+	// 				const motorcycles = await motorcyclesService.read();
+	// 				expect(motorcycles).to.be.deep.equal([motorcycleMockWithId]);
 	// 			});
 	// 		});
 

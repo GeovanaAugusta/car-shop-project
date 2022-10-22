@@ -18,10 +18,10 @@ describe('Motorcycle Model', () => {
 		sinon.restore();
 	})
 
-	describe('creating a car', () => {
+	describe('creating a motorcycle', () => {
 		it('successfully created', async () => {
-			const newCar = await motorcyclesModel.create(motorcycleMock);
-			expect(newCar).to.be.deep.equal(motorcycleMockWithId);
+			const newMotorcycle = await motorcyclesModel.create(motorcycleMock);
+			expect(newMotorcycle).to.be.deep.equal(motorcycleMockWithId);
 		});
 	});
 

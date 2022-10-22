@@ -4,13 +4,13 @@ import * as sinon from 'sinon';
 import MotorcylesControllers from '../../../controllers/MotorcylesControllers';
 import MotorcylesModels from '../../../models/MotorcylesModels';
 import MotorcylesServices from '../../../services/MotorcylesServices';
-import { motorcycleMock } from '../../mocks/motorcycleMock';
+import { motorcycleMock, motorcycleMockWithId } from '../../mocks/motorcycleMock';
 
 
 describe('Motorcycle Controller', () => {
-  const carsModel = new MotorcylesModels()
-  const carsService = new MotorcylesServices(carsModel);
-  const carsController = new MotorcylesControllers(carsService);
+  const motorcyclesModel = new MotorcylesModels()
+  const motorcyclesService = new MotorcylesServices(motorcyclesModel);
+  const motorcyclesController = new MotorcylesControllers(motorcyclesService);
 
   const req = {} as Request; 
 
@@ -27,14 +27,14 @@ describe('Motorcycle Controller', () => {
 
   describe('Create a Motorcycle', () => {
     beforeEach(() => {
-      sinon.stub(carsService, 'create').resolves(motorcycleMock);
+      sinon.stub(motorcyclesService, 'create').resolves(motorcycleMock);
         
     })
 
     it('Success', async () => {
 
       req.body = motorcycleMock;
-      await carsController.create(req, res);
+      await motorcyclesController.create(req, res);
 
       const statusStub = res.status as sinon.SinonStub;
       expect(statusStub.calledWith(201)).to.be.true;
@@ -44,26 +44,26 @@ describe('Motorcycle Controller', () => {
     });
   });
 
-  // describe('Read Car', () => {
-  //   beforeEach(() => {
-  //     sinon.stub(carsService, 'read').resolves([carsMockWithId]);
-  //   })
-  //       it('Success', async () => {
-  //         await carsController.read(req, res);
+  describe('Read a Motorcycle', () => {
+    beforeEach(() => {
+      sinon.stub(motorcyclesService, 'read').resolves([motorcycleMockWithId]);
+    })
+        it('Success', async () => {
+          await motorcyclesController.read(req, res);
     
-  //         expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-  //         expect((res.json as sinon.SinonStub).calledWith([carsMockWithId])).to.be.true;
-  //       });
-  //     });
+          expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+          expect((res.json as sinon.SinonStub).calledWith([motorcycleMockWithId])).to.be.true;
+        });
+      });
 
   // describe('ReadOne Car', () => {
   //   beforeEach(() => {
-  //     sinon.stub(carsService, 'readOne').resolves(carsMock);
+  //     sinon.stub(motorcyclesService, 'readOne').resolves(carsMock);
   //   })
 
   //   it('Success', async () => {
   //     req.params = { id: carsMockWithId._id };
-  //     await carsController.readOne(req, res);
+  //     await motorcyclesController.readOne(req, res);
 
   //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
   //     expect((res.json as sinon.SinonStub).calledWith(carsMock)).to.be.true;
@@ -72,9 +72,9 @@ describe('Motorcycle Controller', () => {
 
   // describe('Update Car', () => {
   //   it('Success', async () => {
-  //     sinon.stub(carsService, 'update').resolves(carsMockWithId)
+  //     sinon.stub(motorcyclesService, 'update').resolves(carsMockWithId)
 
-  //     await carsController.update(req, res)
+  //     await motorcyclesController.update(req, res)
 
   //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
   //     expect((res.json as sinon.SinonStub).calledWith(carsMockWithId)).to.be.true;
@@ -84,7 +84,7 @@ describe('Motorcycle Controller', () => {
   // describe('Delete Car', () => {
   //   it('Success', async () => {
   //     req.params = { id: carsMockWithId._id }
-  //     await carsController.delete(req, res);
+  //     await motorcyclesController.delete(req, res);
 
   //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
   //     expect((res.json as sinon.SinonStub).calledWith(carsMockWithId)).to.be.true;

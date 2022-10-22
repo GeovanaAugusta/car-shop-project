@@ -52,8 +52,8 @@ describe('Cars Service', () => {
 
 	describe('Read Cars', () => {
 				it('Success', async () => {
-					const frames = await carsService.read();
-					expect(frames).to.be.deep.equal([carsMockWithId]);
+					const cars = await carsService.read();
+					expect(cars).to.be.deep.equal([carsMockWithId]);
 				});
 			});
 
@@ -116,8 +116,8 @@ describe('Cars Service', () => {
 
 	describe('Delete Frame', () => {
 		it('Success', async () => {
-			const frames = await carsService.delete(carsMockWithId._id);
-			expect(frames).to.be.deep.equal(carsMockWithId);
+			const cars = await carsService.delete(carsMockWithId._id);
+			expect(cars).to.be.deep.equal(carsMockWithId);
 		});
 
 		it('Failure', async () => {
