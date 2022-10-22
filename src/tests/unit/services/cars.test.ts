@@ -15,6 +15,14 @@ describe('Cars Service', () => {
 		sinon.stub(carsModel, 'readOne')
 			.onCall(0).resolves(carsMockWithId)
 			.onCall(1).resolves(null);
+			sinon.stub(carsModel, 'read').resolves([carsMockWithId])
+			sinon.stub(carsModel, 'update')
+			.onCall(0).resolves(carsMockWithId)
+			.onCall(1).resolves(null);
+			sinon.stub(carsModel, 'delete')
+    	.onCall(0).resolves(carsMockWithId)
+    	.onCall(1).resolves(null);
+			
 
 	});
 
@@ -41,6 +49,13 @@ describe('Cars Service', () => {
 			expect(error).to.be.instanceOf(ZodError);
 		});
 	});
+
+	describe('Read Cars', () => {
+				it('Success', async () => {
+					const frames = await carsService.read();
+					expect(frames).to.be.deep.equal([carsMockWithId]);
+				});
+			});
 
 	describe('ReadOne Car', () => {
 		it('Success', async () => {
@@ -98,5 +113,22 @@ describe('Cars Service', () => {
 			expect(error?.message).to.be.eq(ErrorTypes.CarNotFound)
 		})
 	})
+
+	describe('Delete Frame', () => {
+		it('Success', async () => {
+			const frames = await carsService.delete(carsMockWithId._id);
+			expect(frames).to.be.deep.equal(carsMockWithId);
+		});
+
+		it('Failure', async () => {
+      let error;
+			try {
+				await carsService.delete(carsMockWithId._id);
+			} catch (err: any) {
+        error = err
+			}
+      expect(error.message).to.be.deep.equal(ErrorTypes.CarNotFound);
+		});
+	});
 
 });
