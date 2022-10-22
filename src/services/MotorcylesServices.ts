@@ -13,6 +13,11 @@ class MotorcyclesService implements IServiceMotorcycle<IMotorcycle> {
     }
     return this._cars.create(parsed.data);
   }
+
+  public async read(): Promise<IMotorcycle[]> {
+    const cars = await this._cars.read();
+    return cars;
+  }
 }
 
 export default MotorcyclesService;
