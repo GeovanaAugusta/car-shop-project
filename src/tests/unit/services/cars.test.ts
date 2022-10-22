@@ -4,8 +4,7 @@ import { ZodError } from 'zod';
 import { ErrorTypes } from '../../../errors/catalog';
 import CarsModel from '../../../models/CarsModels';
 import CarsServices from '../../../services/CarsServices';
-import { carsMock,
-	carsMockWithId, } from '../../mocks/carsMocks';
+import { carsMock, carsMockWithId, } from '../../mocks/carsMocks';
 
 describe('Cars Service', () => {
 	const carsModel = new CarsModel();
