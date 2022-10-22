@@ -10,8 +10,14 @@ abstract class MongoModel<T> implements IModel<T> {
   public async create(obj:T):Promise<T> {
     return this._model.create({ ...obj });
   }
+  
+  // Property 'read' in type 'MongoModel<T>' is not assignable to the same property in base type 'IModel<T>'.
+  // Type '() => Promise<T[] | null>' is not assignable to type '() => Promise<T[]>'.
+  // Type 'Promise<T[] | null>' is not assignable to type 'Promise<T[]>'.
+  //   Type 'T[] | null' is not assignable to type 'T[]'.
+  // Type 'null' is not assignable to type 'T[]'.
 
-  public async read():Promise<T[] | null> {
+  public async read(): Promise<T[]> {
     return this._model.find();
   }
 

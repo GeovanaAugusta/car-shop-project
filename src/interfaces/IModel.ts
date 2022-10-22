@@ -1,6 +1,8 @@
 export interface IModel<T> {
   create(obj: T):Promise<T>,
-  read():Promise<T[] | null>,
+  // Type '{ status?: boolean | undefined; model: string; year: number; color: string; buyValue: number; doorsQty: number; seatsQty: number; }[] | null' is not assignable to type '{ status?: boolean | undefined; model: string; year: number; color: string; buyValue: number; doorsQty: number; seatsQty: number; }[]'.
+  // Type 'null' is not assignable to type '{ status?: boolean | undefined; model: string; year: number; color: string; buyValue: number; doorsQty: number; seatsQty: number; }[]'. NÃO PODIA SER | null
+  read():Promise<T[]>,
   readOne(_x: string):Promise<T | null>,
   update(_x: string, obj: T): Promise<T | null>,
   delete(_x: string): Promise<T | null>,
