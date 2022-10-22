@@ -40,7 +40,7 @@ describe('Cars Model', () => {
 			try {
 				await carsModel.readOne('123ERRADO');
 			} catch (error: any) {
-				expect(error.message).to.be.eq(ErrorTypes.InvalidCarId);
+				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
 			}
 		});
 	});
@@ -55,7 +55,7 @@ describe('Cars Model', () => {
 			try {
 				await carsModel.update('123ERRADO', carsMockForChange);
 			} catch (error:any) {
-				expect(error.message).to.be.eq(ErrorTypes.InvalidCarId);
+				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
 			}
 		});
 	});

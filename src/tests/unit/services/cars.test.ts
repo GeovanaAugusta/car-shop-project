@@ -73,7 +73,7 @@ describe('Cars Service', () => {
 				error = err;
 			}
 
-			expect(error?.message).to.be.deep.equal(ErrorTypes.CarNotFound);
+			expect(error?.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
 		});
 	});
 
@@ -127,7 +127,7 @@ describe('Cars Service', () => {
 			} catch (err: any) {
         error = err
 			}
-      expect(error.message).to.be.deep.equal(ErrorTypes.CarNotFound);
+      expect(error.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
 		});
 	});
 
