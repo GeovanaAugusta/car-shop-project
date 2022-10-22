@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import * as sinon from 'sinon';
 import { ZodError } from 'zod';
-// import { ErrorTypes } from '../../../errors/catalog';
+import { ErrorTypes } from '../../../errors/catalog';
 import MotorcylesModels from '../../../models/MotorcylesModels';
 import MotorcylesServices from '../../../services/MotorcylesServices';
 import { motorcycleMock, motorcycleMockWithId  } from '../../mocks/motorcycleMock';
@@ -12,9 +12,9 @@ describe('Motorcycles Service', () => {
 
 	before(() => {
 		sinon.stub(motorcycleModel, 'create').resolves(motorcycleMockWithId);
-		// sinon.stub(motorcycleModel, 'readOne')
-		// 	.onCall(0).resolves(motorcycleMockWithId)
-		// 	.onCall(1).resolves(null);
+		sinon.stub(motorcycleModel, 'readOne')
+			.onCall(0).resolves(motorcycleMockWithId)
+			.onCall(1).resolves(null);
 		// 	sinon.stub(motorcycleModel, 'read').resolves([motorcycleMockWithId])
 		// 	sinon.stub(motorcycleModel, 'update')
 		// 	.onCall(0).resolves(motorcycleMockWithId)
@@ -57,25 +57,25 @@ describe('Motorcycles Service', () => {
 	// 			});
 	// 		});
 
-	// describe('ReadOne Car', () => {
-	// 	it('Success', async () => {
-	// 		const carCreated = await motorcyclesService.readOne('abobrinha');
+	describe('ReadOne Motorcycle', () => {
+		it('Success', async () => {
+			const motorcycleCreated = await motorcyclesService.readOne('abobrinha');
 
-	// 		expect(carCreated).to.be.deep.equal(motorcycleMockWithId);
-	// 	});
+			expect(motorcycleCreated).to.be.deep.equal(motorcycleMockWithId);
+		});
 
-	// 	it('Failure', async () => {
-	// 		let error;
+		it('Failure', async () => {
+			let error;
 
-	// 		try {
-	// 			await motorcyclesService.readOne(motorcycleMockWithId._id);
-	// 		} catch (err:any) {
-	// 			error = err;
-	// 		}
+			try {
+				await motorcyclesService.readOne(motorcycleMockWithId._id);
+			} catch (err:any) {
+				error = err;
+			}
 
-	// 		expect(error?.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
-	// 	});
-	// });
+			expect(error?.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
+		});
+	});
 
 	// describe('Update Car', () => {
 		// it('Success', async () => {

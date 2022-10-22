@@ -56,19 +56,19 @@ describe('Motorcycle Controller', () => {
         });
       });
 
-  // describe('ReadOne Car', () => {
-  //   beforeEach(() => {
-  //     sinon.stub(motorcyclesService, 'readOne').resolves(carsMock);
-  //   })
+  describe('ReadOne Motorcycle', () => {
+    beforeEach(() => {
+      sinon.stub(motorcyclesService, 'readOne').resolves(motorcycleMock);
+    })
 
-  //   it('Success', async () => {
-  //     req.params = { id: carsMockWithId._id };
-  //     await motorcyclesController.readOne(req, res);
+    it('Success', async () => {
+      req.params = { id: motorcycleMockWithId._id };
+      await motorcyclesController.readOne(req, res);
 
-  //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-  //     expect((res.json as sinon.SinonStub).calledWith(carsMock)).to.be.true;
-  //   });
-  // });
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(motorcycleMock)).to.be.true;
+    });
+  });
 
   // describe('Update Car', () => {
   //   it('Success', async () => {

@@ -3,14 +3,14 @@ import sinon from 'sinon';
 import MotorcylesModels from '../../../models/MotorcylesModels';
 import { Model } from 'mongoose';
 import {	motorcycleMock, motorcycleMockWithId } from '../../mocks/motorcycleMock';
-// import { ErrorTypes } from '../../../errors/catalog';
+import { ErrorTypes } from '../../../errors/catalog';
 
 describe('Motorcycle Model', () => {
 	const motorcyclesModel = new MotorcylesModels();
 
 	before(() => {
 		sinon.stub(Model, 'create').resolves(motorcycleMockWithId);
-	// 	sinon.stub(Model, 'findOne').resolves(carsMockWithId);
+		sinon.stub(Model, 'findOne').resolves(motorcycleMockWithId);
 	// 	sinon.stub(Model, 'findByIdAndUpdate').resolves(carsMockForChangeWithId);
 	});
 
@@ -25,30 +25,30 @@ describe('Motorcycle Model', () => {
 		});
 	});
 
-	// describe('searching a car', () => {
-	// 	it('successfully found', async () => {
-	// 		const carFound = await carsModel.readOne('63541f24a9c17873ff1625cd');
-	// 		expect(carFound).to.be.deep.equal(carsMockWithId);
-	// 	});
+	describe('searching a motorcycle', () => {
+		it('successfully found', async () => {
+			const motorcycleFound = await motorcyclesModel.readOne('63541f24a9c17873ff1625cd');
+			expect(motorcycleFound).to.be.deep.equal(motorcycleMockWithId);
+		});
 
-	// 	it('_id not found', async () => {
-	// 		try {
-	// 			await carsModel.readOne('123ERRADO');
-	// 		} catch (error: any) {
-	// 			expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
-	// 		}
-	// 	});
-	// });
+		it('_id not found', async () => {
+			try {
+				await motorcyclesModel.readOne('123ERRADO');
+			} catch (error: any) {
+				expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
+			}
+		});
+	});
 	
 	// describe('changing a car', () => {
 	// 	it('successfully changed', async () => {
-	// 		const carsChanged = await carsModel.update('63541f24a9c17873ff1625cd', carsMockForChange);
+	// 		const carsChanged = await motorcyclesModel.update('63541f24a9c17873ff1625cd', carsMockForChange);
 	// 		expect(carsChanged).to.be.deep.equal(carsMockForChangeWithId);
 	// 	});
 	
 	// 	it('_id not found to change', async () => {
 	// 		try {
-	// 			await carsModel.update('123ERRADO', carsMockForChange);
+	// 			await motorcyclesModel.update('123ERRADO', carsMockForChange);
 	// 		} catch (error:any) {
 	// 			expect(error.message).to.be.eq(ErrorTypes.InvalidMongoId);
 	// 		}
