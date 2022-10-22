@@ -1,22 +1,28 @@
 import { IServiceMotorcycle } from '../interfaces/IServiceMotorcycle';
 import { IMotorcycle, IMotorcycleSchema } from '../interfaces/IMotorcycle';
 import { IModelMotorcycle } from '../interfaces/IModelMotorcycle';
-// import { ErrorTypes } from '../errors/catalog';
+import { ErrorTypes } from '../errors/catalog';
 
 class MotorcyclesService implements IServiceMotorcycle<IMotorcycle> {
-  constructor(private _cars: IModelMotorcycle<IMotorcycle>) { }
+  constructor(private _motorcycles: IModelMotorcycle<IMotorcycle>) { }
 
   public async create(obj: unknown):Promise<IMotorcycle> {
     const parsed = IMotorcycleSchema.safeParse(obj);
     if (!parsed.success) {
       throw parsed.error;
     }
-    return this._cars.create(parsed.data);
+    return this._motorcycles.create(parsed.data);
   }
 
   public async read(): Promise<IMotorcycle[]> {
-    const cars = await this._cars.read();
-    return cars;
+    const motorcycles = await this._motorcycles.read();
+    return motorcycles;
+  }
+
+  public async readOne(_id: string):Promise<IMotorcycle> {
+    const motorcycle = await this._motorcycles.readOne(_id);
+    if (!motorcycle) throw new Error(ErrorTypes.EntityNotFound);
+    return motorcycle;
   }
 }
 

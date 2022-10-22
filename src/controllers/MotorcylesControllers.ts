@@ -22,6 +22,15 @@ export default class MotorcycleController {
     const result = await this._service.read();
     return res.status(200).json(result);
   }
+
+  public async readOne(
+    req: Request,
+    res: Response<IMotorcycle>,
+  ) {
+    const result = await this._service.readOne(req.params.id);
+    if (!result) return res.status(200).json(result);
+    return res.status(200).json(result);
+  }
 }
 
 // SOURCE
