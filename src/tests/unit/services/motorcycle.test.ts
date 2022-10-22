@@ -16,9 +16,9 @@ describe('Motorcycles Service', () => {
 			.onCall(0).resolves(motorcycleMockWithId)
 			.onCall(1).resolves(null);
 		// 	sinon.stub(motorcycleModel, 'read').resolves([motorcycleMockWithId])
-		// 	sinon.stub(motorcycleModel, 'update')
-		// 	.onCall(0).resolves(motorcycleMockWithId)
-		// 	.onCall(1).resolves(null);
+			sinon.stub(motorcycleModel, 'update')
+			.onCall(0).resolves(motorcycleMockWithId)
+			.onCall(1).resolves(null);
 		// 	sinon.stub(motorcycleModel, 'delete')
     // 	.onCall(0).resolves(motorcycleMockWithId)
     // 	.onCall(1).resolves(null);
@@ -77,42 +77,42 @@ describe('Motorcycles Service', () => {
 		});
 	});
 
-	// describe('Update Car', () => {
-		// it('Success', async () => {
-		// 	sinon.stub(motorcycleModel, 'update').resolves(motorcycleMockWithId);
+	describe('Update Motorcycle', () => {
+		it('Success', async () => {
+			sinon.stub(motorcycleModel, 'update').resolves(motorcycleMockWithId);
 
-		// 	const updated = await motorcyclesService.update('any-id', carsMock);
+			const updated = await motorcyclesService.update('any-id', motorcycleMock);
 
-		// 	expect(updated).to.be.deep.eq(motorcycleMockWithId);
+			expect(updated).to.be.deep.eq(motorcycleMockWithId);
 
-		// 	sinon.restore();
-		// })
+			sinon.restore();
+		})
 		
-		// it('Failure - Zod', async () => {
-		// 	let error;
+		it('Failure - Zod', async () => {
+			let error;
 
-		// 	try {
-		// 		await motorcyclesService.update('any-id', { INVALID: "OBJECT" })
-		// 	} catch(err) {
-		// 		error = err;
-		// 	}
+			try {
+				await motorcyclesService.update('any-id', { INVALID: "OBJECT" })
+			} catch(err) {
+				error = err;
+			}
 
-		// 	expect(error).to.be.instanceOf(ZodError)
-		// })
+			expect(error).to.be.instanceOf(ZodError)
+		})
 
-		// it('Failure - Car not Found', async () => {
-		// 	sinon.stub(motorcycleModel, 'update').resolves(null);
-		// 	let error: any;
+		it('Failure - Car not Found', async () => {
+			sinon.stub(motorcycleModel, 'update').resolves(null);
+			let error: any;
 
-		// 	try {
-		// 		await motorcyclesService.update('any-id', carsMock)
-		// 	} catch(err) {
-		// 		error = err;
-		// 	}
+			try {
+				await motorcyclesService.update('any-id', motorcycleMock)
+			} catch(err) {
+				error = err;
+			}
 
-		// 	expect(error?.message).to.be.eq(ErrorTypes.CarNotFound)
-		// })
-	// })
+			expect(error?.message).to.be.eq(ErrorTypes.EntityNotFound)
+		})
+	})
 
 	// describe('Delete Frame', () => {
 	// 	it('Success', async () => {

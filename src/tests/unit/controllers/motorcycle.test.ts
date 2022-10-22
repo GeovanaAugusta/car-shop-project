@@ -70,16 +70,16 @@ describe('Motorcycle Controller', () => {
     });
   });
 
-  // describe('Update Car', () => {
-  //   it('Success', async () => {
-  //     sinon.stub(motorcyclesService, 'update').resolves(carsMockWithId)
+  describe('Update motorcycle', () => {
+    it('Success', async () => {
+      sinon.stub(motorcyclesService, 'update').resolves(motorcycleMockWithId)
 
-  //     await motorcyclesController.update(req, res)
+      await motorcyclesController.update(req, res)
 
-  //     expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
-  //     expect((res.json as sinon.SinonStub).calledWith(carsMockWithId)).to.be.true;
-  //   })
-  // })
+      expect((res.status as sinon.SinonStub).calledWith(200)).to.be.true;
+      expect((res.json as sinon.SinonStub).calledWith(motorcycleMockWithId)).to.be.true;
+    })
+  })
 
   // describe('Delete Car', () => {
   //   it('Success', async () => {
