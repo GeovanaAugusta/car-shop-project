@@ -39,6 +39,14 @@ export default class MotorcycleController {
     const updated = await this._service.update(req.params.id, req.body);
     return res.status(200).json(updated);
   }
+
+  public async delete(
+    req: Request,
+    res: Response<IMotorcycle>,
+  ) {
+    const result = await this._service.delete(req.params.id);
+    return res.status(204).json(result);
+  }
 }
 
 // SOURCE

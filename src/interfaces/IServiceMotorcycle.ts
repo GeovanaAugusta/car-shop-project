@@ -3,7 +3,7 @@ export interface IServiceMotorcycle<T> {
   readOne(_id:string):Promise<T>,
   update(id:string, body:unknown): Promise<T>;
   read():Promise<T[]>,
-  // delete(_id:string):Promise<T>,
+  delete(_id:string):Promise<T>,
 }
 
 // SOURCE
