@@ -42,26 +42,25 @@ describe('Cars Service', () => {
 		});
 	});
 
-	// describe('ReadOne Car', () => {
-	// 	it('Success', async () => {
-	// 		const frameCreated = await carsService.readOne('abobrinha');
+	describe('ReadOne Car', () => {
+		it('Success', async () => {
+			const carCreated = await carsService.readOne('abobrinha');
 
-	// 		expect(frameCreated).to.be.deep.equal(carsMockWithId);
-	// 	});
+			expect(carCreated).to.be.deep.equal(carsMockWithId);
+		});
 
-	// 	it('Failure', async () => {
-	// 		let error;
+		it('Failure', async () => {
+			let error;
 
-	// 		try {
-  //       // a mesma chamada que o teste acima aqui vai gerar o erro por causa do nosso sinon.stub(...).onCall(1)
-	// 			await carsService.readOne(carsMockWithId._id);
-	// 		} catch (err:any) {
-	// 			error = err;
-	// 		}
+			try {
+				await carsService.readOne(carsMockWithId._id);
+			} catch (err:any) {
+				error = err;
+			}
 
-	// 		expect(error?.message).to.be.deep.equal(ErrorTypes.EntityNotFound);
-	// 	});
-	// });
+			expect(error?.message).to.be.deep.equal(ErrorTypes.CarNotFound);
+		});
+	});
 
 	// describe('Update Frame', () => {
 	// 	it('Success', async () => {
