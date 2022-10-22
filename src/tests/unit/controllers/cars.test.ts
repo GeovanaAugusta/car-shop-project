@@ -8,8 +8,8 @@ import {carsMock,	carsMockWithId, } from '../../mocks/carsMocks';
 
 
 describe('Cars Controller', () => {
-  const frameModel = new CarsModel()
-  const carsService = new CarsService(frameModel);
+  const carsModel = new CarsModel()
+  const carsService = new CarsService(carsModel);
   const carsController = new CarsControllers(carsService);
 
   const req = {} as Request; 
