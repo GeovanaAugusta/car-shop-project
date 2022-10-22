@@ -78,15 +78,15 @@ describe('Cars Service', () => {
 	});
 
 	describe('Update Car', () => {
-		it('Success', async () => {
-			sinon.stub(carsModel, 'update').resolves(carsMockWithId);
+		// it('Success', async () => {
+		// 	sinon.stub(carsModel, 'update').resolves(carsMockWithId);
 
-			const updated = await carsService.update('any-id', carsMock);
+		// 	const updated = await carsService.update('any-id', carsMock);
 
-			expect(updated).to.be.deep.eq(carsMockWithId);
+		// 	expect(updated).to.be.deep.eq(carsMockWithId);
 
-			sinon.restore();
-		})
+		// 	sinon.restore();
+		// })
 		
 		it('Failure - Zod', async () => {
 			let error;
@@ -100,18 +100,18 @@ describe('Cars Service', () => {
 			expect(error).to.be.instanceOf(ZodError)
 		})
 
-		it('Failure - Frame not Found', async () => {
-			sinon.stub(carsModel, 'update').resolves(null);
-			let error: any;
+		// it('Failure - Car not Found', async () => {
+		// 	sinon.stub(carsModel, 'update').resolves(null);
+		// 	let error: any;
 
-			try {
-				await carsService.update('any-id', carsMock)
-			} catch(err) {
-				error = err;
-			}
+		// 	try {
+		// 		await carsService.update('any-id', carsMock)
+		// 	} catch(err) {
+		// 		error = err;
+		// 	}
 
-			expect(error?.message).to.be.eq(ErrorTypes.CarNotFound)
-		})
+		// 	expect(error?.message).to.be.eq(ErrorTypes.CarNotFound)
+		// })
 	})
 
 	describe('Delete Frame', () => {
