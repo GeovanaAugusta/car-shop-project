@@ -25,17 +25,25 @@ Neste projeto foi desenvolvida uma API para gerenciar uma concessionária de ve�
     
  `cd car-shop-project`
 
-## Utilizando o Docker
+## Utilizando o Docker para subir o banco do MongoDB
 
 - Instale o Docker, caso ainda não o tenha instalado;
 
-- Ainda no seu terminal, use o comando:
+- Baixe a imagem do MongoDB, usando o comando:
 
-`docker-compose up -d`
+`docker pull mongo`
 
-- Dessa forma será inicializado um container chamado blogs_api e outro chamado blogs_api_db, sendo assim possível rodar o container blogs_api via CLI ou abri-lo no VS Code. Na sequência use o comando:
+- Crie o container do MongoD, usando o comando:
 
-`docker exec -it blogs_api bash`
+`docker run --name <nome-do-container> -p 27017:27017 -d mongo`
+
+- Verifique se o container está rodando, usando o comando:
+
+`docker ps`
+
+- Dessa forma será inicializado um container chamado car_shop e outro chamado car_shop_db, sendo assim possível rodar o container car_shop via CLI ou abri-lo no VS Code. Na sequência use o comando:
+
+`docker exec -it car_shop bash`
 
 - Dessa forma terá acesso ao terminal interativo do container criado pelo compose que está rodando em segundo plano;
 
@@ -43,7 +51,7 @@ Neste projeto foi desenvolvida uma API para gerenciar uma concessionária de ve�
 
 ``` bash
 npm install
-npm run debug
+npm run dev
 ```
 
 ## Rodando localmente
@@ -54,7 +62,7 @@ npm run debug
 
 ``` bash
 npm install
-npm run debug
+npm run dev
 ```
 
 # Documentação da API
