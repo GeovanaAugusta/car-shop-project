@@ -77,13 +77,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Ferrari Maranello",
-    year: 1963,
-    color: "red",
-    buyValue: 3500000,
-    seatsQty: 2,
-    doorsQty: 2
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Ferrari Maranello",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500000,
+    "seatsQty": 2,
+    "doorsQty": 2
   }
 ```
 
@@ -91,13 +91,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Ferrari Maranello",
-    year: 1963,
-    color: "red",
-    buyValue: 3500000,
-    seatsQty: 2,
-    doorsQty: 2
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Ferrari Maranello",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500000,
+    "seatsQty": 2,
+    "doorsQty": 2
   }
 ```
   
@@ -113,13 +113,13 @@ npm run dev
 ```json
 [
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Ferrari Maranello",
-    year: 1963,
-    color: "red",
-    buyValue: 3500000,
-    seatsQty: 2,
-    doorsQty: 2
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Ferrari Maranello",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500000,
+    "seatsQty": 2,
+    "doorsQty": 2
   }
   /* ... */
   ]
@@ -140,13 +140,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Ferrari Maranello",
-    year: 1963,
-    color: "red",
-    buyValue: 3500000,
-    seatsQty: 2,
-    doorsQty: 2
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Ferrari Maranello",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500000,
+    "seatsQty": 2,
+    "doorsQty": 2
   }
 ```
 
@@ -176,13 +176,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Fiat Uno",
-    year: 1963,
-    color: "blue",
-    buyValue: 3500,
-    seatsQty: 4,
-    doorsQty: 4
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Fiat Uno",
+    "year": 1963,
+    "color": "blue",
+    "buyValue": 3500,
+    "seatsQty": 4,
+    "doorsQty": 4
   }
 ```
 
@@ -190,13 +190,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Fiat Uno",
-    year: 1963,
-    color: "blue",
-    buyValue: 3500,
-    seatsQty: 4,
-    doorsQty: 4
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Fiat Uno",
+    "year": 1963,
+    "color": "blue",
+    "buyValue": 3500,
+    "seatsQty": 4,
+    "doorsQty": 4
   }
 ```
 
@@ -251,13 +251,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "red",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
 ```
 
@@ -265,13 +265,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "red",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
 ```
 
@@ -287,13 +287,13 @@ npm run dev
 ```json
 [
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "red",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
   /* ... */
   ]
@@ -314,13 +314,13 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "red",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "red",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
 ```
 
@@ -350,27 +350,27 @@ npm run dev
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "black",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "black",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
 ```
 
-  + Response se o carro for atualizado com sucesso, com um status http `200`:
+  + Response se a moto for atualizada com sucesso, com um status http `200`:
 
 ```json
   {
-    _id: "4edd40c86762e0fb12000003",
-    model: "Honda CG Titan 125",
-    year: 1963,
-    color: "black",
-    buyValue: 3500,
-    category: "Street",
-    engineCapacity: 125
+    "_id": "4edd40c86762e0fb12000003",
+    "model": "Honda CG Titan 125",
+    "year": 1963,
+    "color": "black",
+    "buyValue": 3500,
+    "category": "Street",
+    "engineCapacity": 125
   }
 ```
 
