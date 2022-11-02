@@ -67,4 +67,350 @@ npm run dev
 
 # Documentação da API
 
-- Em progresso.
+#### Cadastrar um novo veículo do tipo carro
+```bash
+  POST /car
+```
+
+ + Formato do corpo da Requisição:
+    + Body
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+  }
+```
+
+  + Response se o carro for cadastrado com sucesso, com um status http `201`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+  }
+```
+  
+  + Caso a requisição receba um objeto vazio, quantidade de assentos inferior a 2, quantidade de portas inferior a 2, sem possuir as chaves `model`, `year`, `color`, `buyValue`, `doorsQty` e `seatsQty`, o seu retorno será apenas um status http `400`, sem body.
+  
+#### Listar todos os veículos do tipo carro
+```bash
+  GET /car
+```
+
+  + Response se todos os carros forem listados com sucesso, com um status http `200`:
+
+```json
+[
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+  }
+  /* ... */
+  ]
+```
+
+  + Response se não houver carros:
+
+```json
+[]
+```
+
+#### Listar carro por ID
+```bash
+  GET /car/:id
+```
+
+  + Response se o carro for listado com sucesso, com um status http `200`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Ferrari Maranello",
+    year: 1963,
+    color: "red",
+    buyValue: 3500000,
+    seatsQty: 2,
+    doorsQty: 2
+  }
+```
+
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
+
+#### Atualizar o registro de um carro por ID
+```bash
+  PUT /car/:id
+```
+
+  + Formato do corpo da Requisição:
+    + Body
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Fiat Uno",
+    year: 1963,
+    color: "blue",
+    buyValue: 3500,
+    seatsQty: 4,
+    doorsQty: 4
+  }
+```
+
+  + Response se o carro for atualizado com sucesso, com um status http `200`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Fiat Uno",
+    year: 1963,
+    color: "blue",
+    buyValue: 3500,
+    seatsQty: 4,
+    doorsQty: 4
+  }
+```
+
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
+
+  + Caso o body da requisição esteja vazio é retornado apenas um status http `400`, sem body.
+
+#### Deletar um carro por ID
+```bash
+  DELETE /car/:id
+```
+
+  + Caso o carro seja removido com sucesso é retornado apenas um status http `204`, sem body.
+  
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
+
+#### Cadastrar um novo veículo do tipo moto
+```bash
+  POST /motorcycles
+```
+
+ + Formato do corpo da Requisição:
+    + Body
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "red",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+```
+
+  + Response se a moto for cadastrada com sucesso, com um status http `201`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "red",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+```
+
+  + Caso a requisição receba um objeto vazio, `category` diferente de `Street`, `Custom` ou `Trail`, `engineCapacity` menor ou igual a zero/ou maior que 2500, sem possuir as chaves `model`, `year`, `color`, `buyValue`, `category` e `engineCapacity`, o seu retorno será apenas um status http `400`, sem body.
+
+#### Listar todos os veículos do tipo moto
+```bash
+  GET /motorcycles
+```
+
+  + Response se todos as motos forem listadss com sucesso, com um status http `200`:
+
+```json
+[
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "red",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+  /* ... */
+  ]
+```
+
+  + Response se não houver motos:
+
+```json
+[]
+```
+
+#### Listar moto por ID
+```bash
+  GET /motorcycles/:id
+```
+
+  + Response se a moto for listada com sucesso, com um status http `200`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "red",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+```
+
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
+
+#### Atualizar o registro de uma moto por ID
+```bash
+  PUT /motorcycles/:id
+```
+
+  + Formato do corpo da Requisição:
+    + Body
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "black",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+```
+
+  + Response se o carro for atualizado com sucesso, com um status http `200`:
+
+```json
+  {
+    _id: "4edd40c86762e0fb12000003",
+    model: "Honda CG Titan 125",
+    year: 1963,
+    color: "black",
+    buyValue: 3500,
+    category: "Street",
+    engineCapacity: 125
+  }
+```
+
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
+
+  + Caso o body da requisição esteja vazio é retornado apenas um status http `400`, sem body.
+
+#### Deletar uma moto por ID
+```bash
+  DELETE /motorcycles/:id
+```
+
+  + Caso a moto seja removida com sucesso é retornado apenas um status http `204`, sem body.
+  
+  + Response se o id possuir menos que 24 caracteres, com um status http `400`:
+
+```json
+    {
+      "error": "Id must have 24 hexadecimal characters"
+    }
+```
+
+  + Response se o id possuir 24 caracteres mas for inválido, com um status http `404`:
+
+```json
+    {
+      "error": "Object not found"
+    }
+```
